@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import ListStagiaire from './components/stagiaire/ListStagiaire';
+import DetailStagiaire from './components/stagiaire/DetailStagiaire';
+import AddStagiaire from './components/stagiaire/AddStagiaire';
+import Header from './components/Header';
+import StagiaireApi from './components/stagiaire/StagiaireApi';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ListStagiaire/>}></Route>
+        <Route path='/add' element={<AddStagiaire/>}></Route>
+        <Route path='/:nom' element={<DetailStagiaire/>}></Route>
+        <Route path='/3asboss' element={<StagiaireApi/>}></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
